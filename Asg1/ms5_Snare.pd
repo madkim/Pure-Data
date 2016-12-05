@@ -1,0 +1,37 @@
+#N canvas 604 189 609 433 10;
+#X obj 229 198 noise~;
+#X obj 223 337 dac~;
+#X obj 363 249 vline~;
+#X obj 229 266 *~;
+#X obj 162 214 osc~;
+#X msg 363 178 100 \, 0 300;
+#X obj 162 176 line~;
+#X obj 229 229 /~ 10;
+#X obj 162 253 *~ 8;
+#X obj 162 89 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 183 91 Run the patch.;
+#X text 36 253 Make the osc louder.;
+#X text 274 227 Reduce noise amplitude.;
+#X text 63 169 Creates pitch \; decay for osc. \;;
+#X text 409 246 Creates amplitude \; decay for noise. \;;
+#X text 437 174 Change amplitude from to 0 over 300ms;
+#X msg 162 127 270 \, 0 300;
+#X text 231 128 Change frequency from 270 to 0 over 300ms;
+#X text 255 339 Use dac for audio output;
+#X obj 230 300 *~ 1;
+#X text 161 56 It would be advisable to play this patch at a low volume.
+;
+#X connect 0 0 7 0;
+#X connect 2 0 3 1;
+#X connect 3 0 19 0;
+#X connect 4 0 8 0;
+#X connect 5 0 2 0;
+#X connect 6 0 4 0;
+#X connect 7 0 3 0;
+#X connect 8 0 19 0;
+#X connect 9 0 16 0;
+#X connect 16 0 6 0;
+#X connect 16 0 5 0;
+#X connect 19 0 1 1;
+#X connect 19 0 1 0;

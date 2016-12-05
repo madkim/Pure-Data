@@ -1,0 +1,56 @@
+#N canvas 576 130 651 423 10;
+#X obj 152 343 dac~;
+#X obj 156 142 phasor~;
+#X obj 155 310 *~ 0;
+#X obj 265 275 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 308 182 5 0 0 0 - - -, f 5;
+#X floatatom 352 199 5 0 0 0 - - -, f 5;
+#X obj 155 218 bp~ 100 10;
+#X obj 328 138 line;
+#X obj 384 169 line;
+#X obj 328 46 bng 25 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 384 135 1 \, 10 2000;
+#X obj 310 244 select 4000;
+#X obj 433 201 line;
+#X msg 328 92 1 \, 1000 2000;
+#X text 29 103 Phasor's frequency.;
+#X obj 156 102 float 45;
+#X obj 156 66 loadbang;
+#X text 12 66 Set frequency on load.;
+#X text 53 219 Bandpass filter;
+#X obj 264 150 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 287 276 Gate sound until patch is run.;
+#X text 189 345 Use dac for audio output.;
+#X msg 433 176 1 \, 4000 3300;
+#X text 519 173 Use line as timer \; to toggle audio off \; after 3s
+\;;
+#X text 460 130 Change bp Q from \; 1 to 10 over 2s. \;;
+#X text 415 85 Change bp frequency \; from 1 to 1000 over 2s. \;;
+#X text 385 236 Uses line as reference \; to toggle gate after 3s.
+\;;
+#X text 327 20 Advisable to run patch at low volume.;
+#X text 360 51 RUN THE PATCH;
+#X connect 1 0 6 0;
+#X connect 2 0 0 0;
+#X connect 2 0 0 1;
+#X connect 3 0 2 1;
+#X connect 4 0 6 1;
+#X connect 5 0 6 2;
+#X connect 6 0 2 0;
+#X connect 7 0 4 0;
+#X connect 8 0 5 0;
+#X connect 9 0 13 0;
+#X connect 9 0 19 0;
+#X connect 10 0 8 0;
+#X connect 10 0 22 0;
+#X connect 11 0 3 0;
+#X connect 12 0 11 0;
+#X connect 13 0 7 0;
+#X connect 13 0 10 0;
+#X connect 15 0 1 0;
+#X connect 16 0 15 0;
+#X connect 19 0 3 0;
+#X connect 22 0 12 0;

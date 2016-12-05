@@ -1,0 +1,166 @@
+#N canvas 720 51 513 403 12;
+#N canvas 666 112 606 380 hanning-window 0;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array hanning 1024 float 0;
+#X coords 0 1 1023 0 200 120 1 0 0;
+#X restore 294 190 graph;
+#X msg 196 154 0;
+#X obj 90 209 osc~;
+#X obj 90 155 samplerate~;
+#X obj 90 235 *~ -0.5;
+#X obj 90 261 +~ 0.5;
+#X obj 82 75 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 82 289 tabwrite~ hanning;
+#X obj 90 182 / 1024;
+#X text 138 207 period 1024;
+#X obj 82 120 t b b b;
+#X obj 82 38 loadbang;
+#X msg 111 76 \; pd dsp 1;
+#X text 173 35 calclualte hanning window table on startup;
+#X connect 1 0 2 1;
+#X connect 2 0 4 0;
+#X connect 3 0 8 0;
+#X connect 4 0 5 0;
+#X connect 5 0 7 0;
+#X connect 6 0 10 0;
+#X connect 8 0 2 0;
+#X connect 10 0 7 0;
+#X connect 10 1 3 0;
+#X connect 10 2 1 0;
+#X connect 11 0 6 0;
+#X connect 11 0 12 0;
+#X restore 219 342 pd hanning-window;
+#X obj 150 343 dac~;
+#N canvas 644 180 644 645 fft 0;
+#X obj 53 40 inlet~;
+#X obj 53 564 *~;
+#X obj 53 81 *~;
+#X obj 89 80 tabreceive~ hanning;
+#X obj 53 602 outlet~;
+#X obj 90 565 tabreceive~ hanning;
+#X obj 53 207 rfft~;
+#X obj 53 303 rifft~;
+#X obj 54 6 block~ 1024 4;
+#X obj 53 510 *~;
+#X obj 71 425 loadbang;
+#X msg 71 453 1024;
+#X obj 71 480 expr 1 / ($f1 * 3 / 2);
+#N canvas 356 95 839 602 spectral-filter 1;
+#X obj 80 47 inlet~;
+#X obj 330 46 inlet~;
+#X obj 80 506 outlet~;
+#X obj 330 506 outlet~;
+#X text 54 15 real component;
+#X text 288 15 imaginary component;
+#X text 61 536 real component;
+#X text 290 536 imaginary component;
+#X text 375 131 the idea is to filter out bins that have magnitude
+;
+#X text 374 110 here is where you implement the spectral noise gate.
+;
+#X text 374 213 1 first you have to convert the FFT output to magnitude.
+;
+#X text 395 259 number with a real and an imaginary component. you
+need;
+#X text 395 281 to convert this to magnitude and phase.;
+#X text 395 235 b/c of how the FFT operates \, data is output as a
+complex;
+#X text 371 315 2 filter the bins with magnitude less than some threshold.
+;
+#X text 393 337 this is as simples as using a;
+#X obj 613 336 >~;
+#X text 645 336 object to open / close;
+#X text 392 361 a gate to either pass or not pass bins depending on
+their;
+#X text 374 177 threshold variable.;
+#X text 393 386 magnitude. you can pass / not pass a bin by multiplying
+it;
+#X text 392 412 by 1 or 0;
+#X text 373 153 less than some threshold. use a number box to make
+the;
+#X obj 186 109 *~;
+#X obj 255 108 *~;
+#X obj 218 143 +~;
+#X obj 218 180 sqrt~;
+#X obj 209 276 print~ amplitude;
+#X obj 242 232 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 222 317 5 0 0 0 - - -;
+#X obj 80 438 *~;
+#X obj 330 433 *~;
+#X obj 155 351 >~;
+#X text 517 576 comment;
+#X connect 0 0 23 0;
+#X connect 0 0 23 1;
+#X connect 0 0 30 0;
+#X connect 1 0 24 0;
+#X connect 1 0 24 1;
+#X connect 1 0 31 0;
+#X connect 23 0 25 0;
+#X connect 24 0 25 1;
+#X connect 25 0 26 0;
+#X connect 26 0 27 0;
+#X connect 26 0 32 0;
+#X connect 28 0 27 0;
+#X connect 29 0 32 1;
+#X connect 30 0 2 0;
+#X connect 31 0 3 0;
+#X connect 32 0 30 1;
+#X connect 32 0 31 1;
+#X restore 53 254 pd spectral-filter;
+#X text 109 39 input signal;
+#X text 238 77 apply hanning window;
+#X text 236 564 apply hanning window;
+#X text 108 303 reconstruct time domain signal with an inverse FFT
+;
+#X text 195 252 <-- APPLY YOUR SPECTRAL FILTERING HERE!!!;
+#X text 113 601 output signal;
+#X text 88 507 normalize for an FFT sized 1024 with hanning overlap
+4;
+#X text 160 5 FFT size 1024 with overlap 4 (hop is 128 samples);
+#X text 107 204 perform FFT (here we use rfft~ for efficiency);
+#X connect 0 0 2 0;
+#X connect 1 0 4 0;
+#X connect 2 0 6 0;
+#X connect 3 0 2 1;
+#X connect 5 0 1 1;
+#X connect 6 0 13 0;
+#X connect 6 1 13 1;
+#X connect 7 0 9 0;
+#X connect 9 0 1 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 12 0 9 1;
+#X connect 13 0 7 0;
+#X connect 13 1 7 1;
+#X restore 150 290 pd fft analysis-resynthesis;
+#X obj 18 20 cnv 15 400 40 empty empty spectral_filter_template 20
+12 0 24 -228992 -66577 0;
+#X text 113 71 sound input here;
+#X floatatom 150 157 5 0 0 0 - - -;
+#X obj 150 250 spigot~;
+#X obj 225 216 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 247 211 on/off;
+#X obj 150 122 f 200;
+#X obj 150 98 loadbang;
+#X obj 150 194 phasor~;
+#X obj 241 106 openpanel;
+#X msg 241 135 open \$1;
+#X obj 241 176 readsf~;
+#X obj 259 72 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 309 138 1;
+#X connect 2 0 1 0;
+#X connect 2 0 1 1;
+#X connect 5 0 11 0;
+#X connect 6 0 2 0;
+#X connect 7 0 6 1;
+#X connect 9 0 5 0;
+#X connect 10 0 9 0;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 14 0 6 0;
+#X connect 15 0 12 0;
+#X connect 16 0 14 0;

@@ -1,0 +1,22 @@
+#N canvas 707 150 559 461 10;
+#X obj 216 184 osc~;
+#X obj 216 100 phasor~;
+#X obj 216 292 dac~;
+#X obj 216 234 *~ 0;
+#X obj 269 199 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 216 137 *~ 450;
+#X text 83 72 Sets the frequency \; for the phasor. \;;
+#X obj 216 74 float 1;
+#X obj 216 42 loadbang;
+#X text 275 42 Starts patch on load.;
+#X text 252 293 Used to output audio;
+#X text 295 198 Use this to toggle \; audio on/off. \;;
+#X connect 0 0 3 0;
+#X connect 1 0 5 0;
+#X connect 3 0 2 0;
+#X connect 3 0 2 1;
+#X connect 4 0 3 1;
+#X connect 5 0 0 0;
+#X connect 7 0 1 0;
+#X connect 8 0 7 0;

@@ -1,0 +1,47 @@
+#N canvas 577 23 640 664 10;
+#X obj 98 127 gemhead;
+#X obj 98 49 tgl 25 1 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+;
+#X obj 98 246 pix_film;
+#X obj 156 48 bng 25 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 156 89 openpanel;
+#X msg 156 126 open \$1;
+#X msg 222 127 auto \$1;
+#X obj 222 48 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 118 292 pix_texture;
+#X obj 442 110 gemwin;
+#X obj 442 43 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X msg 485 73 destroy;
+#X msg 223 166 0;
+#X obj 119 333 rectangle 4 6;
+#X text 253 167 video start;
+#X text 463 16 (1) Open window;
+#X text 365 46 (3) Render \; video;
+#X text 253 44 (4) Start/Stop \; playback;
+#X text 147 16 (2) Open \; video;
+#X obj 79 600 output~;
+#X obj 100 371 vSplitInput;
+#X msg 479 36 create;
+#X text 31 281 gem code \; to render \; video. \;;
+#X text 304 372 Musical Interface \; (open for instructions). \;;
+#X text 155 617 (5) Turn on sound;
+#X text 540 72 (6) End video;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 2 0 8 0;
+#X connect 2 0 20 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 2 0;
+#X connect 6 0 2 0;
+#X connect 7 0 6 0;
+#X connect 8 0 13 0;
+#X connect 10 0 9 0;
+#X connect 11 0 9 0;
+#X connect 12 0 2 1;
+#X connect 20 0 19 0;
+#X connect 20 0 19 1;
+#X connect 21 0 9 0;
