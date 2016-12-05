@@ -1,0 +1,5 @@
+#N canvas 429 269 769 324 24;
+#X obj 156 180 nonzero-innards 66;
+#X obj 428 179 nonzero-innards 67;
+#X text 85 100 these two abstractions refer to distinct arrays by explicitly
+giving separate arguments;

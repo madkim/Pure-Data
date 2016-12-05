@@ -1,0 +1,14 @@
+#N canvas 705 69 585 474 24;
+#X text 1393 831 2000;
+#X obj 73 43 cnv 15 400 40 empty empty Frequency_Modulation 20 12 0
+24 -228992 -66577 0;
+#X obj 98 213 fm-innards;
+#X obj 84 289 dac~;
+#X msg 98 147 100 100 6 0 266;
+#X msg 287 147 100 50 0 10 2000;
+#X msg 291 186 100 280 6 0 2000;
+#X connect 2 0 3 0;
+#X connect 2 0 3 1;
+#X connect 4 0 2 0;
+#X connect 5 0 2 0;
+#X connect 6 0 2 0;

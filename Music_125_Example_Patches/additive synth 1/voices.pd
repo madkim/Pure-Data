@@ -1,0 +1,44 @@
+#N canvas 737 47 515 693 24;
+#X obj 26 22 cnv 15 400 40 empty empty Additive_Synthesis 20 12 0 24
+-228992 -66577 0;
+#X obj 23 126 cnv 15 300 200 empty empty empty 20 12 0 14 -232576 -66577
+0;
+#X obj 38 283 s frequency;
+#X obj 24 340 cnv 15 250 330 empty empty empty 20 12 0 14 -203904 -66577
+0;
+#X obj 292 342 cnv 15 190 140 empty empty empty 20 12 0 14 -204786
+-66577 0;
+#X obj 313 376 catch~ master;
+#X obj 313 425 output~;
+#X text 304 346 master out bus;
+#X text 24 71 using abstraction to build an additive synth.;
+#X text 35 346 16 voices;
+#X obj 38 204 unpack 0 0;
+#X obj 38 244 mtof;
+#X text 163 202 pitch \, duration;
+#X text 133 165 <- click to play;
+#X text 35 130 notes;
+#X msg 38 165 30 2000;
+#X obj 178 283 s duration;
+#X obj 39 381 voice 1;
+#X obj 39 414 voice 2;
+#X obj 39 513 voice 5;
+#X obj 39 448 voice 3;
+#X obj 39 482 voice 4;
+#X obj 39 549 voice 6;
+#X obj 39 585 voice 7;
+#X obj 39 618 voice 8;
+#X obj 144 382 voice 9;
+#X obj 144 415 voice 10;
+#X obj 144 449 voice 11;
+#X obj 144 483 voice 12;
+#X obj 144 514 voice 13;
+#X obj 144 550 voice 14;
+#X obj 144 586 voice 15;
+#X obj 144 619 voice 16;
+#X connect 5 0 6 0;
+#X connect 5 0 6 1;
+#X connect 10 0 11 0;
+#X connect 10 1 16 0;
+#X connect 11 0 2 0;
+#X connect 15 0 10 0;

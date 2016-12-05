@@ -1,0 +1,24 @@
+#N canvas 499 27 740 614 24;
+#X obj 265 362 prob;
+#C restore;
+#X msg 322 207 clear;
+#X text 392 207 clear matrix;
+#X msg 346 257 dump;
+#X msg 368 304 embed;
+#X text 410 256 print all transitions;
+#X text 440 303 save with patcher;
+#X floatatom 265 419 5 0 0 0 - - -;
+#X obj 223 369 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 154 205 reset 1;
+#X obj 306 395 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 265 147 0 0 50 \, 0 1 80 \, 0 2 10;
+#X connect 0 0 7 0;
+#X connect 0 1 10 0;
+#X connect 1 0 0 0;
+#X connect 3 0 0 0;
+#X connect 4 0 0 0;
+#X connect 8 0 0 0;
+#X connect 9 0 0 0;
+#X connect 11 0 0 0;

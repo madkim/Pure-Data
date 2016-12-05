@@ -1,0 +1,57 @@
+#N canvas 506 22 1005 897 24;
+#X obj 40 56 r frequency;
+#X obj 40 814 throw~ master;
+#X obj 40 772 *~;
+#X text 38 845 sum all voices to master bus;
+#X text 38 23 receive fundamental frequency;
+#X obj 160 287 cnv 15 210 180 empty empty empty 20 12 0 14 -232576
+-66577 0;
+#X obj 176 417 /;
+#X msg 176 377 1;
+#X obj 238 376 float \$1;
+#X obj 176 336 t b b;
+#X obj 176 301 loadbang;
+#X obj 40 480 *~ 1;
+#X obj 23 113 cnv 15 190 150 empty empty empty 20 12 0 14 -203904 -66577
+0;
+#X obj 40 221 osc~;
+#X obj 99 167 float \$1;
+#X obj 99 131 loadbang;
+#X obj 40 165 * 1;
+#X text 383 288 scale voice amplitude by voice number;
+#X text 382 312 amplitude = 1 / voice number;
+#X text 222 162 mulitply fundamental frequency by voice number;
+#X obj 267 488 cnv 15 190 235 empty empty empty 20 12 0 14 -204786
+-66577 0;
+#X obj 281 579 line~;
+#X obj 281 677 pow~;
+#X obj 351 632 float \$1;
+#X obj 351 596 loadbang;
+#X msg 281 539 1 \, 0 \$1;
+#X obj 281 498 r duration;
+#X text 468 693 this means that higher voices decay faster;
+#X text 472 543 amplitude envlope;
+#X text 468 492 receive note duration;
+#X obj 569 36 cnv 15 400 40 empty empty additive_synth_voice 20 12
+0 20 -228992 -66577 0;
+#X text 468 667 scale envelope by a power of the voice number;
+#X text 586 77 * takes 1 argument: voice number;
+#X connect 0 0 16 0;
+#X connect 2 0 1 0;
+#X connect 6 0 11 1;
+#X connect 7 0 6 0;
+#X connect 8 0 6 1;
+#X connect 9 0 7 0;
+#X connect 9 1 8 0;
+#X connect 10 0 9 0;
+#X connect 11 0 2 0;
+#X connect 13 0 11 0;
+#X connect 14 0 16 1;
+#X connect 15 0 14 0;
+#X connect 16 0 13 0;
+#X connect 21 0 22 0;
+#X connect 22 0 2 1;
+#X connect 23 0 22 1;
+#X connect 24 0 23 0;
+#X connect 25 0 21 0;
+#X connect 26 0 25 0;

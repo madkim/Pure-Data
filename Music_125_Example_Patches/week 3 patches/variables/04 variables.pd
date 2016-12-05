@@ -1,0 +1,5 @@
+#N canvas 429 269 769 324 24;
+#X text 85 100 these two abstractions refer to the same array BY ACCIDENT!
+;
+#X obj 156 180 array-innards;
+#X obj 428 179 array-innards;

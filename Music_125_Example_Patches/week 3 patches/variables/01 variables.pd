@@ -1,0 +1,19 @@
+#N canvas 554 240 824 331 24;
+#X obj 42 196 float;
+#X obj 134 196 int;
+#X floatatom 109 130 5 0 0 0 - - -;
+#X floatatom 184 132 5 0 0 0 - - -;
+#X text 31 19 [float] and [int] can be used to save values for later
+;
+#X text 272 131 <- number in the right inlet stores the value;
+#X obj 43 91 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 79 83 <- bang in the left inlet recalls it;
+#X floatatom 41 248 5 0 0 0 - - -;
+#X floatatom 133 249 5 0 0 0 - - -;
+#X connect 0 0 8 0;
+#X connect 1 0 9 0;
+#X connect 2 0 0 1;
+#X connect 3 0 1 1;
+#X connect 6 0 1 0;
+#X connect 6 0 0 0;

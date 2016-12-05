@@ -1,0 +1,17 @@
+#N canvas 304 158 1004 549 24;
+#X obj 169 76 inlet;
+#X obj 169 250 *~ 1e+09;
+#X obj 169 292 clip~ -0.5 0.5;
+#X floatatom 169 169 5 0 0 0 - - -;
+#X obj 169 409 outlet~;
+#X obj 169 208 osc~;
+#X text 153 33 set frequency;
+#X text 151 449 audio signal out;
+#X text 366 31 this patch is the [squarewave~] abstraction that is
+loaded into the example "2 abstraction.pd" it makes a simple square
+waveform and allows one inlet to control frequency.;
+#X connect 0 0 3 0;
+#X connect 1 0 2 0;
+#X connect 2 0 4 0;
+#X connect 3 0 5 0;
+#X connect 5 0 1 0;

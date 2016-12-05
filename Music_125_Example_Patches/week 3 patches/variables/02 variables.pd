@@ -1,0 +1,32 @@
+#N canvas 410 177 1057 844 24;
+#X obj 51 558 print;
+#X obj 49 193 print;
+#X msg 49 139 hello \$1;
+#X msg 49 84 66;
+#X text 166 138 \$1 refers to the value 66;
+#X obj 51 369 print;
+#X msg 51 315 hello \$1;
+#X floatatom 51 263 5 0 0 0 - - -;
+#X text 164 314 \$1 refers to whatever input value we give it;
+#X text 109 84 <- input value 66;
+#X text 123 259 <- input any value;
+#X text 170 445 if the input is a list of multiple values;
+#X msg 51 500 \$3 \$2 \$1;
+#X msg 51 449 11 22 33;
+#X text 130 558 this should reverse the list;
+#X text 179 499 dollarsigns now refer to the index of the item in the
+list;
+#X obj 50 752 print;
+#X msg 50 643 11 22 33;
+#X text 366 692 we can even use this to extend a list;
+#X msg 50 694 \$3 \$2 \$1 \$1 \$2 \$3 \$3 \$3 \$3;
+#X text 31 19 "dollarsigns" in MESSAGE boxes refer to the input VALUE(S)
+;
+#X connect 2 0 1 0;
+#X connect 3 0 2 0;
+#X connect 6 0 5 0;
+#X connect 7 0 6 0;
+#X connect 12 0 0 0;
+#X connect 13 0 12 0;
+#X connect 17 0 19 0;
+#X connect 19 0 16 0;

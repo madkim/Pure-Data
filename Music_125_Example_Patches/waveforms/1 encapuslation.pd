@@ -1,0 +1,44 @@
+#N canvas 713 27 969 416 24;
+#X floatatom 98 102 5 0 0 0 - - -;
+#X floatatom 299 102 5 0 0 0 - - -;
+#N canvas 173 338 469 533 squarewave 0;
+#X obj 169 76 inlet;
+#X obj 169 250 *~ 1e+09;
+#X obj 169 292 clip~ -0.5 0.5;
+#X obj 169 208 osc~;
+#X floatatom 169 169 5 0 0 0 - - -;
+#X obj 169 409 outlet~;
+#X text 153 33 frequency;
+#X text 151 449 audio signal;
+#X connect 0 0 4 0;
+#X connect 1 0 2 0;
+#X connect 2 0 5 0;
+#X connect 3 0 1 0;
+#X connect 4 0 3 0;
+#X restore 98 146 pd squarewave;
+#N canvas 173 338 469 533 squarewave 0;
+#X obj 169 76 inlet;
+#X obj 169 250 *~ 1e+09;
+#X obj 169 292 clip~ -0.5 0.5;
+#X obj 169 208 osc~;
+#X floatatom 169 169 5 0 0 0 - - -;
+#X obj 169 409 outlet~;
+#X text 153 33 frequency;
+#X text 151 449 audio signal;
+#X connect 0 0 4 0;
+#X connect 1 0 2 0;
+#X connect 2 0 5 0;
+#X connect 3 0 1 0;
+#X connect 4 0 3 0;
+#X restore 299 145 pd squarewave;
+#X obj 183 255 output~;
+#X obj 37 32 cnv 15 400 40 empty empty Encapsulation 20 12 0 24 -228992
+-66577 0;
+#X text 357 212 encapsulation is a good way to organize your patches
+by tucking the details away into subpatches. encapsulation means we
+have two separate subpatches \, even though they have the same name
+[pd squarewave]. you can edit one without affecting the other.;
+#X connect 0 0 2 0;
+#X connect 1 0 3 0;
+#X connect 2 0 4 0;
+#X connect 3 0 4 1;

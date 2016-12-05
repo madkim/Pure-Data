@@ -1,0 +1,29 @@
+#N canvas 875 71 736 838 24;
+#X obj 51 198 print;
+#X text 31 19 "dollarsigns" in OBJECT boxes refer to the patches ARGUMENTS
+;
+#X obj 51 140 float \$1;
+#X obj 59 321 + \$1;
+#X floatatom 58 271 5 0 0 0 - - -;
+#X floatatom 58 373 5 0 0 0 - - -;
+#X obj 51 97 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 61 540 print;
+#X obj 61 439 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 61 482 symbol \$2;
+#X text 175 136 [float] is a good way to access argument values;
+#X text 152 323 you can do math with them;
+#X obj 62 686 tabread \$2;
+#X floatatom 62 742 5 0 0 0 - - -;
+#X floatatom 61 631 5 0 0 0 - - -;
+#X text 194 477 they can even be symbols;
+#X text 205 685 and you can even use them to refer to arrays;
+#X connect 2 0 0 0;
+#X connect 3 0 5 0;
+#X connect 4 0 3 0;
+#X connect 6 0 2 0;
+#X connect 8 0 9 0;
+#X connect 9 0 7 0;
+#X connect 12 0 13 0;
+#X connect 14 0 12 0;

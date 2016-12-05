@@ -1,0 +1,15 @@
+#N canvas 226 390 993 375 24;
+#X floatatom 108 112 5 0 0 0 - - -;
+#X floatatom 309 112 5 0 0 0 - - -;
+#X obj 193 265 output~;
+#X obj 47 42 cnv 15 400 40 empty empty Abstraction 20 12 0 24 -228992
+-66577 0;
+#X obj 108 156 squarewave~;
+#X obj 309 155 squarewave~;
+#X text 367 222 abstraction allows us to create our own pd objects
+and reuse code. the power of abstraction is that when you edit one
+[squarewave~] obejct the other is ALSO changed.;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 4 0 2 0;
+#X connect 5 0 2 1;

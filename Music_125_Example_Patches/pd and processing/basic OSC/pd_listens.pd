@@ -1,0 +1,15 @@
+#N canvas 223 676 599 233 12;
+#X declare -lib oscx;
+#X obj 481 30 import oscx;
+#X obj 18 20 cnv 15 400 40 empty empty OSC 20 12 0 24 -228992 -66577
+0;
+#X obj 43 108 dumpOSC 5001;
+#X obj 43 140 OSCroute /hellopd;
+#X text 163 19 make sure this patch is open before;
+#X text 161 35 running the processing sketch!!!;
+#X floatatom 43 175 5 0 0 0 - - -;
+#X text 188 106 listen for osc messages at port 5001;
+#X text 187 136 parse the message;
+#X text 189 170 show the contents;
+#X connect 2 0 3 0;
+#X connect 3 0 6 0;

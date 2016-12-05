@@ -1,0 +1,12 @@
+#N canvas 1004 159 327 494 24;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array \$1-myarray 10 float 1;
+#A 0 0.957142 0.842856 0.7 0.471429 0.257143 0.0428581 -0.314284 -0.628569
+-0.85714 -0.95714;
+#X coords 0 1 9 -1 200 140 1 0 0;
+#X restore 46 58 graph;
+#X floatatom 50 229 5 0 0 0 - - -;
+#X floatatom 50 324 5 0 0 0 - - -;
+#X obj 50 274 tabread \$1-myarray;
+#X connect 1 0 3 0;
+#X connect 3 0 2 0;
