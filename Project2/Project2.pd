@@ -1,2 +1,35 @@
 #N canvas 0 23 1280 689 10;
-#X obj 201 175 sequencer;
+#X obj 191 173 sequencer;
+#X text 17 257 Samples show the current \; loaded samples. If new \;
+samples are selected \; or user mode is entered \; then the name will
+be \; updated.;
+#X text 202 558 First column toggle \, toggles between \; samples and
+user recorded sounds \; (user mode). These sounds correspond \; to
+the recorded sounds (sound1-8).;
+#X text 442 558 Second column bang \, opens a panel \; which allows
+you to select a sample \; on your computer to be sequenced.;
+#X text 673 558 Third yellow column \, toggles \; between mute and
+unmute for \; the current row.;
+#X text 409 13 Tempo allows you to change the global-tempo of the sequencer
+\; \; Moving the slider right increases the tempo while left decreases
+the tempo. \; \; The numberbox shows the current BPM and can also increase
+or decrease the tempo by dragging up or down. \; \; reset \, resets
+the tempo to the default tempo (120 BPM).;
+#X text 827 11 4 bar \, 8 bar and 16 bar changes the length \; of the
+sequence to 4 \, 8 or 16 bar measures. \; \; clear \, clears the entire
+sequence. \; \; on/off \, turns the sequencer on or off.;
+#X text 863 558 Fourth red column \, bangs clear \; the sequence for
+the current row.;
+#X text 1098 195 These 8 sound banks \; hold 1 second user \; recorded
+samples \; \; Click on one of the 8 \; banks to start recording. \;
+Once recorded the recorded \; waveform will be displayed \; in the
+sound bank. \; \; If not specified sequencer \; will use your default
+\; computer microphone. \; \; Pro-tip: to get the best \; results try
+to record your \; sound as soon as you click \; the sound bank.;
+#X text 14 11 Welcome to sequencer. \; To start \, check the on/off
+toggle box and increase the volume in the lower right hand corner.
+\; \; Each row represents a sound and each column represents an instance
+of time. Checking any box in a row will play that sound when a bang
+in the bang row aligns with that checked box. \; Sequencer is a Pure
+Data object so if you would like to open a new instance in another
+project just create a new object and type sequencer.;
